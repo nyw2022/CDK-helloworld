@@ -9,7 +9,7 @@ export interface HitCounterProps {
 }
 
 export class HitCounter extends Construct {
-  // allows public access to the counter function
+  // allows public access to the counter function ?
   public readonly handler: Function;
 
   constructor(scope: Construct, id: string, props: HitCounterProps) {

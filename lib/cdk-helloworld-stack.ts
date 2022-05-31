@@ -7,14 +7,14 @@ export class CdkHelloworldStack extends Stack {
   constructor(scope: App, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const helloWorld = new Function(this, "HelloHandler", {
+    const hello = new Function(this, "HelloHandler", {
       runtime: Runtime.NODEJS_16_X,
       code: Code.fromAsset("lambda"), // file path
       handler: "hello.handler", // handler
     });
 
     const helloWithCounter = new HitCounter(this, "HelloHitCounter", {
-      downstream: helloWorld,
+      downstream: hello,
     });
 
     new LambdaRestApi(this, "Endpoint", {
